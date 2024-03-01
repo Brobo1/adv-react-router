@@ -1,4 +1,12 @@
-import {Form, json, NavigationType, redirect, useActionData, useNavigate, useNavigation} from 'react-router-dom';
+import {
+	Form,
+	json,
+	NavigationType,
+	redirect,
+	useActionData,
+	useNavigate,
+	useNavigation
+} from 'react-router-dom';
 
 import classes from './EventForm.module.css';
 
@@ -6,8 +14,8 @@ function EventForm({
 	method,
 	event
 }) {
-	const data = useActionData();
-	const navigate = useNavigate();
+	const data       = useActionData();
+	const navigate   = useNavigate();
 	const navigation = useNavigation();
 	
 	const isSubmitting = navigation.state === 'submitting';
@@ -24,9 +32,9 @@ function EventForm({
 			{data && data.errors && (
 				<ul>
 					{Object.values(data.errors)
-						.map((err) => (
-							<li key={err}>{err}</li>
-						))}
+								 .map((err) => (
+									 <li key={err}>{err}</li>
+								 ))}
 				</ul>
 			)}
 			<p>
@@ -89,8 +97,8 @@ export async function action({
 	request,
 	params,
 }) {
-	const method = request.method;
-	const data = await request.formData();
+	const method    = request.method;
+	const data      = await request.formData();
 	const eventData = {
 		title:       data.get("title"),
 		image:       data.get("image"),
@@ -101,9 +109,8 @@ export async function action({
 	let url = 'http://localhost:8080/events';
 	if (method === 'PATCH') {
 		const eventId = params.eventId;
-		url = "http://localhost:8080/events/" + eventId;
+		url           = "http://localhost:8080/events/" + eventId;
 	}
-	
 	
 	const response = await fetch(url, {
 		method:  method,

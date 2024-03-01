@@ -1,14 +1,23 @@
-import {RouterProvider, createBrowserRouter} from 'react-router-dom';
-
-import {EditEventPage} from './pages/EditEvent';
-import {ErrorPage} from './pages/Error';
-import {EventDetailsPage, loader as eventDetailLoader, action as deleteEventAction} from './pages/EventDetails';
-import {EventsPage, loader as eventsLoader} from './pages/Events';
-import {EventsRootLayout} from './pages/EventsRoot';
-import {HomePage} from './pages/Home';
-import {NewEventPage} from './pages/NewEvent';
-import {RootPage} from './pages/Root';
-import {action as manipulateEventAction} from './components/EventForm';
+import {
+	createBrowserRouter,
+	RouterProvider
+}                                                   from 'react-router-dom';
+import {EditEventPage}                              from './pages/EditEvent';
+import {ErrorPage}                                  from './pages/Error';
+import {
+	action as deleteEventAction,
+	EventDetailsPage,
+	loader as eventDetailLoader
+}                                                   from './pages/EventDetails';
+import {
+	EventsPage,
+	loader as eventsLoader
+}                                                   from './pages/Events';
+import {EventsRootLayout}                           from './pages/EventsRoot';
+import {HomePage}                                   from './pages/Home';
+import {NewEventPage}                               from './pages/NewEvent';
+import {RootPage}                                   from './pages/Root';
+import {action as manipulateEventAction}            from './components/EventForm';
 import NewsletterPage, {action as newsletterAction} from './pages/Newsletter';
 
 const router = createBrowserRouter([
@@ -64,7 +73,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-	return <RouterProvider router={router}/>;
+	return <RouterProvider
+		router={router}
+	/>;
 }
 
 export default App;
